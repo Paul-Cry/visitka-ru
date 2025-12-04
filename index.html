@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Масленников Дмитрий Геннадиевич</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Самолётик */
+        .airplane {
+            position: absolute;
+            top: 60px;
+            font-size: 38px;
+            opacity: 0.7;
+            animation: fly 18s linear infinite;
+            z-index: 3;
+            pointer-events: none;
+        }
+        @keyframes fly {
+            0%   { left: -100px; transform: translateY(0) rotate(0); }
+            100% { left: 110vw; transform: translateY(-30px) rotate(0); }
+        }
+
+        .card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            overflow: hidden;
+            width: 100%;
+            max-width: 420px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.4s ease;
+            position: relative;
+            z-index: 2;
+        }
+        .card:hover { transform: translateY(-10px); }
+
+        .header {
+            height: 140px;
+            background: linear-gradient(to bottom, #1e3c72, #2a5298);
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 30px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M0,10 Q25,0 50,10 T100,10 L100,20 L0,20 Z" fill="rgba(255,255,255,0.1)"/></svg>') bottom repeat-x;
+            background-size: 100px 20px;
+            animation: wave 15s linear infinite;
+        }
+        @keyframes wave { 0% { background-position-x: 0; } 100% { background-position-x: 100px; } }
+
+        .logo-container {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            padding: 10px;
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            z-index: 10;
+        }
+        .logo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #fff url('./logo.svg') center/contain no-repeat;
+            border: 7px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .content {
+            padding: 120px 30px 45px;
+            text-align: center;
+        }
+
+        .name { 
+            font-size: 28px; 
+            font-weight: 700; 
+            margin: 20px 0 10px;
+            color: #fff; 
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3); 
+        }
+        .position { font-size: 18px; color: #a8dadc; margin-bottom: 20px; font-weight: 500; }
+        .company { font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 15px; letter-spacing: 0.5px; }
+        .company span { color: #4facfe; }
+
+        .contacts { font-size: 15px; line-height: 2.1; }
+        .contacts a { color: #a8dadc; text-decoration: none; transition: color 0.3s; }
+        .contacts a:hover { color: #4facfe; }
+        .phones { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin: 10px 0; }
+        .address { font-size: 14.5px; line-height: 1.5; color: #a8dadc; margin-bottom: 10px; }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+            color: #888;
+        }
+
+        @media (max-width: 480px) {
+            .airplane { font-size: 28px; top: 50px; }
+            .logo-container { width: 150px; height: 150px; top: 70px; }
+            .content { padding-top: 100px; }
+            .name { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Пролетающий самолётик -->
+    <div class="airplane">✈</div>
+
+    <div class="card">
+        <div class="header"></div>
+
+        <div class="logo-container">
+            <div class="logo"></div>
+        </div>
+
+        <div class="content">
+            <h1 class="name">Dmitry <br>Maslennikov </h1>
+            <div class="position">General Manager</div>
+            
+            <div class="company">JSC RPA «<span>Rodina</span>»</div>
+
+            <div class="contacts">
+                <div class="address">
+                    Russia, 123022, Moscow,<br>Zvenigorodskoe sh., 18/20
+                </div>
+                
+                <div class="phones">
+                    <a href="tel:+74951079595">+7 495 107-95-95</a>
+                    <a href="tel:+79166844886">+7 916 684-48-86</a>
+                </div>
+                
+                <div>E-mail: <a href="mailto:director@nporodina.ru">director@nporodina.ru</a></div>
+                <div>Website: <a href="https://www.nporodina.ru" target="_blank">www.nporodina.ru</a></div>
+            </div>
+
+            <div class="footer">
+                © 2025 ОАО НПО «Родина». Все права защищены.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
